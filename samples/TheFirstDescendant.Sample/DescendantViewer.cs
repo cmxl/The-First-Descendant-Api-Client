@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console;
 using Spectre.Console.Rendering;
 using TheFirstDescendant.Models;
@@ -8,8 +9,14 @@ public static class DescendantViewer
 {
 	public static async Task RunAsync()
 	{
-		var httpClient = new HttpClient();
-		var service = new TheFirstDescendantService(httpClient);
+		var services = new ServiceCollection()
+			.AddTheFirstDescendantServices()
+			.BuildServiceProvider();
+
+		await using var scope = services.CreateAsyncScope();
+		var service = scope.ServiceProvider.GetRequiredService<TheFirstDescendantService>();
+		var httpClientFactory = scope.ServiceProvider.GetRequiredService<IHttpClientFactory>();
+		var httpClient = httpClientFactory.CreateClient();
 
 		// Display header
 		AnsiConsole.Write(
