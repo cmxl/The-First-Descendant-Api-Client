@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet build:*)",
+      "Bash(dotnet test:*)",
+      "Bash(rg:*)",
+      "Bash(dotnet --version)",
+      "Bash(dotnet new:*)",
+      "Bash(dotnet add:*)",
+      "Bash(dotnet run:*)",
+      "Bash(del TFDTool.SampleTestConsumableMaterials.cs)",
+      "Bash(curl -s \"https://open.api.nexon.com/static/tfd/meta/en/consumable-material.json\")",
+      "Bash(tee:*)",
+      "Bash(timeout:*)",
+      "Bash(curl -s \"https://open.api.nexon.com/static/tfd/meta/en/stat.json\")",
+      "Bash(curl -s \"https://open.api.nexon.com/static/tfd/meta/en/module.json\")",
+      "Bash(curl -s \"https://open.api.nexon.com/static/tfd/meta/en/fellow.json\")",
+      "Bash(curl -s \"https://open.api.nexon.com/static/tfd/meta/en/core-type.json\")",
+      "Bash(curl -s \"https://open.api.nexon.com/static/tfd/meta/en/adapt-level.json\")",
+      "Bash(curl -s \"https://open.api.nexon.com/static/tfd/meta/en/fellow-level.json\")",
+      "Bash(curl -s \"https://open.api.nexon.com/static/tfd/meta/en/weapon.json\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

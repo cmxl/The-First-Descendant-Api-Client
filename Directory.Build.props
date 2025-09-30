@@ -1,0 +1,73 @@
+<Project>
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>preview</LangVersion>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+
+		<!-- Code Quality & Analysis -->
+		<Features>strict</Features>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+
+		<!-- Build Performance -->
+		<RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+
+		<!-- Documentation & Warnings -->
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningsAsErrors/>
+
+		<!-- Suppress specific warnings that are often false positives or too restrictive -->
+		<WarningsNotAsErrors>CA1000;CA2227;CA1716;CA1724;CA1001;CA2225;CA1812;CA2101;CS8618;NU1903;SYSLIB1054;SQL71558;CS1591;IDE0005;IDE1006;IDE0010;IDE2000</WarningsNotAsErrors>
+
+		<!-- Global suppressions -->
+		<!-- CS1591: Missing XML comment for publicly visible type or member -->
+		<!-- CA2000: Suppress for HttpClient from IHttpClientFactory - factory manages disposal -->
+		<NoWarn>$(NoWarn);CS1591;CA2000</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>BigBiz Development Team</Authors>
+		<Company>BigBiz</Company>
+		<Product>BigBiz Distributed System</Product>
+		<Copyright>Copyright © BigBiz 2024</Copyright>
+		<PackageProjectUrl>https://github.com/BigBiz/BigBiz</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/BigBiz/BigBiz</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DefineConstants>TRACE</DefineConstants>
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Using Include="System"/>
+		<Using Include="System.Collections.Generic"/>
+		<Using Include="System.Linq"/>
+		<Using Include="System.Threading"/>
+		<Using Include="System.Threading.Tasks"/>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(IsTestProject)' == 'true'">
+		<Using Include="Xunit"/>
+		<Using Include="Xunit.Abstractions"/>
+		<Using Include="NSubstitute"/>
+	</ItemGroup>
+
+	<!-- Import code convention validation -->
+	<Import Project="build/CodeConventions.targets" Condition="Exists('build/CodeConventions.targets')"/>
+
+</Project>

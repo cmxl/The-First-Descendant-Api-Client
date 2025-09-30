@@ -1,0 +1,2639 @@
+openapi: 3.0.3
+info:
+  title: The First Descendant API
+  version: 1.0.0
+  contact:
+    name: help_openapi@nexon.co.kr
+servers:
+  - url: 'https://open.api.nexon.com'
+tags:
+  - name: MetaData
+    description: Retrieves metadata information.
+paths:
+  /static/tfd/meta/{language_code}/descendant.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve descendant metadata
+      description: Retrieves descendant metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescendantResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/weapon.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve weapon metadata
+      description: Retrieves weapon metadata.<br>
+                  This API only provides path information. You can check it via a separate client.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeaponResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/module.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve module metadata
+      description: Retrieves module metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModuleResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/reactor.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve Reactor metadata
+      description: Retrieves Reactor metadata.<br>
+                  This API only provides path information. You can check it via a separate client.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReactorResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/external-component.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve external component metadata
+      description: Retrieves external component metadata.</br>
+                  This API only provides path information. You can check it via a separate client.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalComponentResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/reward.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve Difficulty Level Rewards metadata
+      description: Retrieves Difficulty Level Rewards metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RewardResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/stat.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve base stat metadata
+      description: Retrieves base stat metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/void-battle.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve Void Intercept Battle metadata
+      description: Retrieves Void Intercept Battle metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoidBattleResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/title.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve Title metadata
+      description: Retrieves Title metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TitleResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/descendant-level-detail.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve EXP metadata by descendant level
+      description: Retrieves the required EXP information for each Descendant level.
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescendantLevelDetailResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/mastery-rank-level-detail.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve EXP metadata by Mastery Rank
+      description: Retrieves the required EXP information for each Mastery Rank.
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasteryRankLevelDetailResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/consumable-material.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve consumable items metadata
+      description: Retrieves metadata for consumable items.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsumableMaterialResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/research.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve research info metadata
+      description: Retrieves research info metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResearchResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/amorphous-reward.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve Amorphous Material open reward metadata
+      description: Retrieves metadata for rewards received when opening Amorphous Materials in the game.
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AmorphousRewardResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/amorphous-open-condition-description.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve Amorphous Material opening location metadata
+      description: Retrieves metadata for the locations where Amorphous Materials are opened.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AmorphousOpenConditionDescriptionResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/acquisition-detail.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve acquisition source info metadata
+      description: Retrieves metadata for acquisition source information.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcquisitionDetailResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/weapon-type.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve weapon type metadata
+      description: Retrieves metadata for weapon types.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeaponTypeResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/fellow.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve fellow metadata
+      description: Retrieves metadata for fellow metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FellowResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/fellow-level-detail.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve EXP metadata by fellow level
+      description: Retrieves required EXP metadata by fellow level.
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FellowLevelDetailResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/tier.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve tier metadata
+      description: Retrieves tier metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TierResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/core-slot.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve core slot metadata
+      description: Retrieves metadata for core slots.
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoreSlotResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /static/tfd/meta/{language_code}/core-type.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve core type metadata
+      description: Retrieves metadata information for core types.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoreTypeResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /static/tfd/meta/{language_code}/descendant-group.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve descendant group metadata
+      description: Retrieves descendant group metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: Language codes
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescendantGroupResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /static/tfd/meta/adapt-level.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve adaptability level metadata
+      description: Retrieves adaptability level metadata.
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdaptLevelResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /static/tfd/meta/arche-tuning-board-group.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve Arche tuning board group metadata
+      description: Retrieves Arche tuning board group metadata.
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArcheTuningBoardGroupResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /static/tfd/meta/arche-tuning-board.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve Arche tuning board metadata
+      description: Retrieves Arche tuning board metadata.
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArcheTuningBoardResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /static/tfd/meta/{language_code}/arche-tuning-node.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve Arche tuning node metadata
+      description: Retrieves Arche tuning node metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: Language codes
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArcheTuningNodeResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /static/tfd/meta/{language_code}/customizing-item.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve customization item metadata
+      description: Retrieves customization item metadata.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: Language codes
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomizingItemResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /static/tfd/meta/{language_code}/medal.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve medal meta data
+      description: Retrieves medal meta data.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: Language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MedalResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /static/tfd/meta/{language_code}/vehicle.json:
+    get:
+      tags:
+        - MetaData
+      summary: Retrieve vehicle meta data
+      description: Retrieves vehicle meta data.
+      parameters:
+        - name: language_code
+          in: path
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: Language code
+          required: true
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+components:
+  schemas:
+    DescendantResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          descendant_id:
+            type: string
+            description: Descendant identifier
+          descendant_name:
+            type: string
+            description: Descendant name
+          descendant_group_id:
+            type: string
+            description: Descendant group identifier (Refer to /meta/descendant-group API)
+          descendant_image_url:
+            type: string
+            description: Descendant image path
+          descendant_stat:
+            type: array
+            description: Descendant stat information
+            items:
+              type: object
+              properties:
+                level:
+                  type: number
+                  format: int64
+                  description: Level
+                stat_detail:
+                  type: array
+                  description: Descendant details
+                  items:
+                    type: object
+                    properties:
+                      stat_id:
+                        type: string
+                        description: Stat type (Refer to /meta/stat API)
+                      stat_value:
+                        type: number
+                        format: double
+                        description: Value by stat type
+          descendant_skill:
+            type: array
+            description: Descendant skill information
+            items:
+              type: object
+              properties:
+                skill_type:
+                  type: string
+                  description: Skill type (active/passive)
+                skill_name:
+                  type: string
+                  description: Skill name
+                element_type:
+                  type: string
+                  description: Skill type
+                arche_type:
+                  type: string
+                  description: Arche type
+                skill_image_url:
+                  type: string
+                  description: Skill icon image path
+                skill_description:
+                  type: string
+                  description: Skill description
+    WeaponResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          weapon_name:
+            type: string
+            description: Weapon name
+          weapon_id:
+            type: string
+            description: Weapon identifier
+          image_url:
+            type: string
+            description: Weapon image path
+          weapon_type:
+            type: string
+            description: Weapon type
+          weapon_tier_id:
+            type: string
+            description: Weapon tier (Refer to /meta/tier API)
+          weapon_rounds_type:
+            type: string
+            description: Weapon rounds type
+          available_core_slot:
+            type: array
+            description: List of unlockable core slots (Refer to the /meta/core-slot API)
+            items:
+              type: string
+          base_stat:
+            type: array
+            description: Weapon base spec information
+            items:
+              type: object
+              properties:
+                stat_id:
+                  type: string
+                  description: Weapon base spec identifier (Refer to /meta/stat API)
+                stat_value:
+                  type: number
+                  format: double
+                  description: Weapon base spec value
+          firearm_atk:
+            type: array
+            description: Firearm attack power by level information
+            items:
+              type: object
+              properties:
+                level:
+                  type: number
+                  format: int64
+                  description: Firearm level
+                firearm:
+                  type: array
+                  description: Firearm ATK
+                  items:
+                    type: object
+                    properties:
+                      firearm_atk_type:
+                        type: string
+                        description: Firearm ATK type (Refer to /meta/stat API)
+                      firearm_atk_value:
+                        type: number
+                        format: double
+                        description: Firearm ATK value
+          weapon_perk_ability_name:
+            type: string
+            description: Unique Ability name
+          weapon_perk_ability_description:
+            type: string
+            description: Unique Ability description
+          weapon_perk_ability_image_url:
+            type: string
+            description: Unique Ability image path
+
+    ModuleResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          module_name:
+            type: string
+            description: Module name
+          module_id:
+            type: string
+            description: Module identifier
+          image_url:
+            type: string
+            description: Module image path
+          module_type:
+            type: string
+            description: Module type
+          module_tier_id:
+            type: string
+            description: Module tier (Refer to /meta/tier API)
+          module_socket_type:
+            type: string
+            description: Module slot socket type
+          module_class:
+            type: string
+            description: Module class
+          available_weapon_type:
+            type: array
+            items:
+              type: string
+            description: List of weapon types that can equip modules (refer to /meta/weapon-type API)
+          available_descendant_id:
+            type: array
+            items:
+              type: string
+            description: List of descendant identifiers that can equip modules (refer to /meta/descendant API)
+          available_module_slot_type:
+            type: array
+            items:
+              type: string
+            description: List of slot types that can equip modules
+          module_stat:
+            type: array
+            description: Module attribute information
+            items:
+              type: object
+              properties:
+                level:
+                  type: number
+                  format: int64
+                  description: Module enchantment level
+                module_capacity:
+                  type: number
+                  format: int64
+                  description: Module capacity
+                value:
+                  type: string
+                  description: Module attribute value
+
+    ReactorResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          reactor_id:
+            type: string
+            description: Reactor identifier
+          reactor_name:
+            type: string
+            description: Reactor name
+          image_url:
+            type: string
+            description: Reactor image path
+          reactor_tier_id:
+            type: string
+            description: Reactor tier (Refer to /meta/tier API)
+          reactor_skill_power:
+            type: array
+            description: Skill Power by level information
+            items:
+              type: object
+              properties:
+                level:
+                  type: number
+                  format: int64
+                  description: Reactor level
+                skill_atk_power:
+                  type: number
+                  format: double
+                  description: Skill Power
+                sub_skill_atk_power:
+                  type: number
+                  format: double
+                  description: Sub Attack Power
+                skill_power_coefficient:
+                  type: array
+                  description: Skill Power Boost Ratio information
+                  items:
+                    type: object
+                    properties:
+                      coefficient_stat_id:
+                        type: string
+                        description: Skill Power Boost Ratio identifier (Refer to /meta/stat API)
+                      coefficient_stat_value:
+                        type: number
+                        format: double
+                        description: Skill Power Boost Ratio value
+                enchant_effect:
+                  type: array
+                  description: Enchantment effect by level information
+                  items:
+                    type: object
+                    properties:
+                      enchant_level:
+                        type: number
+                        format: int64
+                        description: Enchantment level
+                      stat_id:
+                        type: string
+                        description: Enchantment effect type (Refer to /meta/stat API)
+                      value:
+                        type: number
+                        format: double
+                        description: Enchantment effect value
+          optimized_condition_type:
+            type: string
+            description: Optimization Condition
+
+    ExternalComponentResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          external_component_id:
+            type: string
+            description: External component identifier
+          external_component_name:
+            type: string
+            description: External component name
+          image_url:
+            type: string
+            description: External component image path
+          external_component_equipment_type:
+            type: string
+            description: External component equipment part
+          external_component_tier_id:
+            type: string
+            description: External components tier  (Refer to /meta/tier API)
+          available_core_slot:
+            type: array
+            description: List of unlockable core slots (Refer to the /meta/core-slot API)
+            items:
+              type: string
+          base_stat:
+            type: array
+            description: External component effect by level information
+            items:
+              type: object
+              properties:
+                level:
+                  type: number
+                  format: int64
+                  description: External component level
+                stat_id:
+                  type: string
+                  description: External component effect type
+                stat_value:
+                  type: number
+                  format: double
+                  description: External component effect value
+          set_option_detail:
+            type: array
+            description: External component set option information
+            items:
+              type: object
+              properties:
+                set_option:
+                  type: string
+                  description: External component set option type
+                set_count:
+                  type: number
+                  format: int64
+                  description: Number of external component sets
+                set_option_effect:
+                  type: string
+                  description: External component set option set effect
+
+    RewardResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          map_id:
+            type: string
+            description: Map identifier
+          map_name:
+            type: string
+            description: Map name
+          battle_zone:
+            type: array
+            description: Battlefield information
+            items:
+              type: object
+              properties:
+                battle_zone_id:
+                  type: string
+                  description: Battlefield identifier
+                battle_zone_name:
+                  type: string
+                  description: Battlefield name
+                reward:
+                  type: array
+                  description: Reward rotation information
+                  items:
+                    type: object
+                    properties:
+                      rotation:
+                        type: number
+                        format: int64
+                        description: Reward rotation
+                      reward_type:
+                        type: string
+                        description: Reward type
+                      reactor_element_type:
+                        type: string
+                        description: Skill type
+                      weapon_rounds_type:
+                        type: string
+                        description: Weapon rounds type
+                      arche_type:
+                        type: string
+                        description: Arche type
+
+    StatResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          stat_id:
+            type: string
+            description: Base stat identifier
+          stat_name:
+            type: string
+            description: Base stat name
+          stat_order_no:
+            type: number
+            format: int64
+            description: Base stat sort order (ascending)
+
+    VoidBattleResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          void_battle_id:
+            type: string
+            description: Void Intercept Battle identifier
+          void_battle_name:
+            type: string
+            description: Void Intercept Battle name
+
+    TitleResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          title_id:
+            type: string
+            description: Title identifier
+          title_name:
+            type: string
+            description: Title name
+
+    DescendantLevelDetailResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          descendant_level:
+            type: number
+            format: int64
+            description: Descendant level
+          exp_per_level:
+            type: number
+            format: int64
+            description: Required EXP for the next level
+
+    MasteryRankLevelDetailResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          mastery_rank_level:
+            type: number
+            format: int64
+            description: Mastery Rank
+          exp_per_level:
+            type: number
+            format: int64
+            description: Required EXP for the next level
+
+    ConsumableMaterialResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          consumable_material_id:
+            type: string
+            description: Consumable Item identifier
+          image_url:
+            type: string
+            description: Consumable Item image path
+          consumable_material_name:
+            type: string
+            description: Consumable Item name
+          required_mastery_rank_level:
+            type: number
+            format: int64
+            description: Required Mastery Rank
+          material_type:
+            type: string
+            description: Material type
+          acquisition_detail:
+            type: array
+            items:
+              type: string
+            description: Acquisition source (refer to /meta/acquisition-detail API)
+          amorphous_reward:
+            type: array
+            items:
+              type: string
+            description: Amorphous Material open reward (refer to /meta/amorphous-reward API)
+          amorphous_open_condition:
+            type: array
+            items:
+              type: string
+            description: Amorphous Material opening location (refer to /meta/amorphous-open-condition-description API)
+
+    ResearchResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          research_id:
+            type: string
+            description: Research identifier
+          research_name:
+            type: string
+            description: Research name
+          repeatable_research:
+            type: boolean
+            description: Repeatable
+          research_type:
+            type: string
+            description: Research type
+          research_time:
+            type: number
+            format: int64
+            description: Research time (seconds)
+          research_cost:
+            type: array
+            description: Research cost
+            items:
+              type: object
+              properties:
+                currency_type:
+                  type: string
+                  description: Currency type
+                currency_value:
+                  type: number
+                  format: int64
+                  description: Currency amount
+          research_boost_cost:
+            type: array
+            description: Boost Research Cost
+            items:
+              type: object
+              properties:
+                currency_type:
+                  type: string
+                  description: Currency type
+                currency_value:
+                  type: number
+                  format: int64
+                  description: Currency amount
+          research_result:
+            type: array
+            description: Research result
+            items:
+              type: object
+              properties:
+                meta_type:
+                  type: string
+                  description: Metadata type of the research result item
+                meta_id:
+                  type: string
+                  description: Identifier of the research result item
+                result_count:
+                  type: number
+                  format: int64
+                  description: Quantity of the research result item
+          research_material:
+            type: array
+            description: Research materials
+            items:
+              type: object
+              properties:
+                meta_type:
+                  type: string
+                  description: Metadata type of the research material item
+                meta_id:
+                  type: string
+                  description: Identifier of the research material item
+                material_count:
+                  type: number
+                  format: int64
+                  description: Quantity of the research material item
+                research_id:
+                  type: array
+                  items:
+                    type: string
+                  description: Research identifier of the research material item (refer to /meta/research API)
+
+    AmorphousRewardResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          amorphous_reward_id:
+            type: string
+            description: Identifier for Amorphous Material open reward
+          open_reward:
+            type: array
+            description: Information about Amorphous Material open rewards
+            items:
+              type: object
+              properties:
+                reward_type:
+                  type: string
+                  description: Reward type (Default, Upgrade)
+                required_stabilizer:
+                  type: string
+                  description: Identifier of the Shape Stabilizer required for upgrade (refer to /meta/consumable-material API)
+                reward_item:
+                  type: array
+                  description: Information about items from Amorphous Material open rewards
+                  items:
+                    type: object
+                    properties:
+                      meta_type:
+                        type: string
+                        description: Type of the Amorphous Material open reward item
+                      meta_id:
+                        type: string
+                        description: Identifier of the Amorphous Material open reward item
+                      rate:
+                        type: number
+                        format: float
+                        description: Reward probability (%)
+
+    AmorphousOpenConditionDescriptionResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          amorphous_open_condition_id:
+            type: string
+            description: Identifier for the Amorphous Material opening location
+          amorphous_open_condition_name:
+            type: string
+            description: Amorphous Material opening location name
+
+    AcquisitionDetailResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          acquisition_detail_id:
+            type: string
+            description: Identifier of the acquisition source
+          acquisition_detail_name:
+            type: string
+            description: Acquisition source name
+
+    WeaponTypeResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          weapon_type:
+            type: string
+            description: Weapon type
+          weapon_type_name:
+            type: string
+            description: Weapon type name
+
+    FellowResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          fellow_id:
+            type: string
+            description: Identifier for the fellow
+          fellow_name:
+            type: string
+            description: Fellow name
+          fellow_tier_id:
+            type: string
+            description: Fellow level (refer to /meta/tier API)
+          fellow_detail:
+            type: array
+            description: Details by fellow level
+            items:
+              type: object
+              properties:
+                fellow_level:
+                  type: number
+                  format: int64
+                  description: Fellow level
+                search_radius_value:
+                  type: number
+                  format: double
+                  description: Search radius values for fellow items by level
+                stat_effect:
+                  type: array
+                  description: Stat effect by level
+                  items:
+                    type: object
+                    properties:
+                      stat_id:
+                        type: string
+                        description: Stat effect types (refer to /meta/stat API)
+                      stat_value:
+                        type: number
+                        format: double
+                        description: Stat effect value
+
+    FellowLevelDetailResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          fellow_level:
+            type: number
+            format: int64
+            description: Fellow level
+          exp_per_level:
+            type: number
+            format: int64
+            description: Required EXP for the next level
+
+    TierResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          tier_id  :
+            type: string
+            description: Tier identifier
+          tier_name:
+            type: string
+            description: Tier name
+
+    CoreSlotResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          core_slot_id:
+            type: string
+            description: Core slot identifier
+          available_weapon_id:
+            type: array
+            description: List of weapons that can unlock this core slot (refer to /meta/weapon API)
+            items:
+              type: string
+          available_external_component_id:
+            type: array
+            description: List of external component that can unlock this core slot (refer to /meta/external-component API)
+            items:
+              type: string
+          available_core_type:
+            type: array
+            description: List of specified core types (refer to /meta/core-type API)
+            items:
+              type: string
+
+    CoreTypeResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          core_type_id:
+            type: string
+            description: Core type identifier
+          core_type:
+            type: string
+            description: Core type
+          core_option:
+            type: array
+            description: core type options
+            items:
+              type: object
+              properties:
+                core_option_id:
+                  type: string
+                  description: core type option identifier
+                detail:
+                  type: array
+                  description: Detailed information on core type options
+                  items:
+                    type: object
+                    properties:
+                      core_option_grade:
+                        type: number
+                        format: int64
+                        description: Core option grade<br>- Higher grades provide better effect values.
+                      required_core_item:
+                        type: object
+                        properties:
+                          meta_type:
+                            type: string
+                            description: Required core item type
+                          meta_id:
+                            type: string
+                            description: Required core item identifier
+                          count:
+                            type: number
+                            format: int64
+                            description: Required core item quantity
+                available_item_option:
+                  type: array
+                  description: Item options
+                  items:
+                    type: object
+                    properties:
+                      item_option:
+                        type: string
+                        description: Option name
+                      option_type:
+                        type: string
+                        description: Option category
+                      option_grade:
+                        type: string
+                        description: Option grade<br>- Higher grades provide better effect values.
+                      option_effect:
+                        type: object
+                        properties:
+                          stat_id:
+                            type: string
+                            description: Option effect stat identifier (refer to /meta/stat API)
+                          operator_type:
+                            type: string
+                            description: Stat operation type (Add:addition, Multiply:multiplication)
+                          min_stat_value:
+                            type: number
+                            format: double
+                            description: Minimum stat value
+                          max_stat_value:
+                            type: number
+                            format: double
+                            description: Maximum stat value
+                      rate:
+                        type: number
+                        format: double
+                        description: Probability of the option appearing
+    DescendantGroupResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          descendant_group_id:
+            type: string
+            description: Descendant group identifier
+          descendant_group_name:
+            type: string
+            description: Descendant group name
+    AdaptLevelResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          level:
+            type: number
+            format: int64
+            description: Level
+          exp_per_level:
+            type: number
+            format: int64
+            description: Required EXP for the next level
+    ArcheTuningBoardGroupResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          arche_tuning_board_group_id:
+            type: string
+            description: Arche tuning board group identifier
+          descendant_group_id:
+            type: string
+            description: Descendant group identifier (Refer to meta/descendant-group API)
+          arche_tuning_board_id:
+            type: string
+            description: Arche board identifier (Refer to /meta/arche-tuning-board API)
+    ArcheTuningBoardResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          arche_tuning_board_id:
+            type: string
+            description: Arche board identifier
+          row_size:
+            type: number
+            format: int64
+            description: Row size
+          column_size:
+            type: number
+            format: int64
+            description: Column size
+          node:
+            type: array
+            items:
+              type: object
+              properties:
+                node_id:
+                  type: string
+                  description: Node identifier (Refer to /meta/arche-tuning-node API)
+                position_row:
+                  type: number
+                  format: int64
+                  description: Row coordinates of the node
+                position_column:
+                  type: number
+                  format: int64
+                  description: Column coordinates of the node
+    ArcheTuningNodeResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          node_id:
+            type: string
+            description: Node identifier
+          node_name:
+            type: string
+            description: Node name
+          node_image_url:
+            type: string
+            description: Node image URL
+          node_type:
+            type: string
+            description: Node type
+          tier_id:
+            type: string
+            description: Node tier identifier (Refer to /meta/tier API)
+          required_tuning_point:
+            type: number
+            format: int64
+            description: Required points
+          node_effect:
+            type: array
+            items:
+              type: object
+              properties:
+                stat_id:
+                  type: string
+                  description: Stat identifier (Refer to /meta/stat API)
+                stat_value:
+                  type: number
+                  format: double
+                  description: Stat effect value
+                operator_type:
+                  type: string
+                  description: Stat operation type (Add:addition, Multiply:multiplication)
+    CustomizingItemResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          customizing_item_id:
+            type: string
+            description: Customization item identifier
+          customizing_item_name:
+            type: string
+            description: Customization item name
+          customizing_item_type:
+            type: string
+            description: Customization item type
+          customizing_item_tier_id:
+            type: string
+            description: Customization item tier (Refer to /meta/tier API)
+          customizing_item_description:
+            type: string
+            description: Customization item description
+          customizing_item_image_url:
+            type: string
+            description: Customization item image path
+          customizing_item_evolution_stage:
+            type: array
+            description: Evolution stage information of the customization item
+            items:
+              type: object
+              properties:
+                stage:
+                  type: number
+                  format: int64
+                  description: Evolution stage of the customization item
+                customizing_item_image_url:
+                  type: string
+                  description: Image path by customization item evolution stage
+          available_descendant:
+            type: array
+            description: Applicable descendant list (Refer to /meta/descendant API)
+            items:
+              type: string
+    MedalResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          medal_id:
+            type: string
+            description: Medal identifier
+          medal_detail:
+            description: Description by medal grade
+            type: array
+            items:
+              type: object
+              properties:
+                medal_level:
+                  type: number
+                  format: int64
+                  description: Medal grade
+                medal_name:
+                  type: string
+                  description: Medal name
+                medal_tier_id:
+                  type: string
+                  description: Medal grade (Refer to /meta/tier API)
+                medal_image_url:
+                  type: string
+                  description: Medal image path
+    VehicleResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          vehicle_id:
+            type: string
+            description: vehicle identifier
+          vehicle_name:
+            type: string
+            description: vehicle name
+          vehicle_description:
+            type: string
+            description: vehicle description
+          vehicle_tier_id:
+            type: string
+            description: vehicle grade
+          image_url:
+            type: string
+            description: vehicle image path
+          stat_effect:
+            description: Stat effect
+            type: array
+            items:
+              type: object
+              properties:
+                stat_id:
+                  type: string
+                  description: Stat effect types (Refer to /meta/stat API)
+                stat_value:
+                  type: number
+                  format: double
+                  description: Stat effect value  
+          stat_effect_per_level:
+            description: stat effect by level information
+            type: array
+            items:
+              type: object
+              properties:
+                vehicle_level:
+                  type: number
+                  format: int64
+                  description: vehicle level
+                stat_effect:
+                  description: stat effect by level information
+                  type: array
+                  items:
+                    type: object
+                    properties:               
+                      stat_id:
+                        type: string
+                        description: Stat effect types (Refer to /meta/stat API)
+                      stat_value:
+                        type: number
+                        format: double
+                        description: Stat effect value
+    ErrorMessage:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Error name
+            message:
+              type: string
+              description: Error message
