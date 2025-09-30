@@ -5,6 +5,11 @@ on:
     tags:
       - 'v*.*.*'  # Triggers on version tags like v1.0.0, v1.2.3, etc.
   workflow_dispatch:  # Allows manual trigger from GitHub Actions UI
+    inputs:
+      version:
+        description: 'Version number (e.g., 1.2.3)'
+        required: true
+        type: string
 
 jobs:
   publish:
@@ -31,8 +36,26 @@ jobs:
     - name: Run tests
       run: dotnet test -c Release --no-build --verbosity normal
 
+    - name: Extract version from tag
+      id: get_version
+      run: |
+        if [[ -n "${{ inputs.version }}" ]]; then
+          # Manual trigger with version input
+          VERSION="${{ inputs.version }}"
+          VERSION="${VERSION#v}"  # Remove 'v' prefix if present
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+        elif [[ "${{ github.ref }}" == refs/tags/* ]]; then
+          # Tag trigger
+          VERSION="${{ github.ref_name }}"
+          VERSION="${VERSION#v}"  # Remove 'v' prefix
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+        else
+          # Fallback
+          echo "version=1.0.0" >> $GITHUB_OUTPUT
+        fi
+
     - name: Pack
-      run: dotnet pack src/TheFirstDescendant/TheFirstDescendant.csproj -c Release --no-build -o ./artifacts
+      run: dotnet pack src/TheFirstDescendant/TheFirstDescendant.csproj -c Release --no-build -o ./artifacts -p:PackageVersion=${{ steps.get_version.outputs.version }}
 
     - name: Publish to NuGet.org
       run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
