@@ -1,4 +1,4 @@
-# TFDTool - The First Descendant API Client
+# The First Descendant API Client
 
 A C# client library for The First Descendant API provided by Nexon.
 
