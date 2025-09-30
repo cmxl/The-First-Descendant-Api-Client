@@ -39,7 +39,7 @@ jobs:
 
     - name: Publish to GitHub Packages
       run: |
-        dotnet nuget add source --username cmxl --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/cmxl/index.json"
+        dotnet nuget update source github --username cmxl --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
         dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "github" --skip-duplicate
 
     - name: Create GitHub Release
