@@ -189,4 +189,6 @@ Based on The First Descendant OpenAPI specification from Nexon:
 
 ## License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 This project is for educational and development purposes. Please review Nexon's terms of service for API usage guidelines.

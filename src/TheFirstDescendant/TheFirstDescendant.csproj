@@ -10,15 +10,23 @@
     <Version>1.0.0</Version>
     <Title>The First Descendant API Client</Title>
     <Authors>Tobias Haimerl (cmxl)</Authors>
-    <Copyright />
-    <PackageProjectUrl>https://github.com/cmxl/TheFirstDescendant.Client</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/cmxl/TheFirstDescendant.Client</RepositoryUrl>
-    <PackageTags>tfd, The First Descendant, api</PackageTags>
+    <Description>A C# client library for The First Descendant API provided by Nexon. Strongly typed with async/await support.</Description>
+    <Copyright>Copyright (c) 2025 Tobias Haimerl (cmxl)</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/cmxl/The-First-Descendant-Api-Client</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/cmxl/The-First-Descendant-Api-Client</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>tfd;the-first-descendant;nexon;api;client;game-api</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Http" />
     <PackageReference Include="System.Text.Json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
